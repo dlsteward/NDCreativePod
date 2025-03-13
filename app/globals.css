@@ -1,0 +1,308 @@
+@import "tailwindcss";
+
+:root {
+  /* Base colors - light theme only */
+  --background: #f4f9f8;
+  --foreground: #2a3a3d;
+  --card-background: #ffffff;
+  --card-border: #e6eef0;
+  
+  /* Brand colors */
+  --primary: #2A9BB9;
+  --primary-foreground: #ffffff;
+  --primary-dark: #1E7A94;
+  --secondary: #FF9EAF;
+  --secondary-dark: #E08A9C;
+  --accent: #9CE2E6;
+  --accent-dark: #89C3C7;
+  --success: #4DC6B5;
+  --error: #FF8A9D;
+  
+  /* Semantic colors */
+  --muted: #667b80;
+  --muted-foreground: #8a9a9e;
+  --info-background: #e5f5f9;
+  --info-foreground: #16535e;
+  --warning-background: #fff8e6;
+  --warning-foreground: #92400e;
+  --error-background: #fff1f1;
+  --error-foreground: #b91c1c;
+  --success-background: #eafaf5;
+  --success-foreground: #166534;
+  
+  /* RGB versions for opacity adjustments */
+  --primary-rgb: 42, 155, 185;
+  --secondary-rgb: 255, 158, 175;
+  --accent-rgb: 156, 226, 230;
+  
+  /* Light outline color */
+  --lightest-outline: #f9fcfd;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Form styles */
+.form-container {
+  background-color: var(--card-background);
+  border: 2px solid var(--card-border);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-header {
+  position: relative;
+  background-color: var(--card-background);
+}
+
+.form-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;  
+  background: linear-gradient(to bottom, transparent, var(--card-background));
+}
+
+.form-header img {
+  mix-blend-mode: multiply;
+}
+
+input, textarea, select {
+  background-color: var(--card-background);
+  color: var(--foreground);
+  border-color: var(--card-border);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* Fredoka font helper class */
+.fredoka-font {
+  font-family: var(--font-fredoka-one), cursive;
+}
+
+/* Alert container style */
+.alert-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: var(--error-background);
+  color: var(--error-foreground);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  max-width: 90%;
+  text-align: center;
+}
+
+/* Title styles */
+.title-outline {
+  text-shadow: -1px -1px 0 var(--primary-dark), 
+               1px -1px 0 var(--primary-dark), 
+               -1px 1px 0 var(--primary-dark), 
+               1px 1px 0 var(--primary-dark);
+  font-weight: bold;
+}
+
+/* Bold title outline */
+.title-outline-bold {
+  text-shadow: -2px -2px 0 var(--primary-dark), 
+               2px -2px 0 var(--primary-dark), 
+               -2px 2px 0 var(--primary-dark), 
+               2px 2px 0 var(--primary-dark),
+               -1px -1px 0 var(--primary-dark),
+               1px -1px 0 var(--primary-dark),
+               -1px 1px 0 var(--primary-dark),
+               1px 1px 0 var(--primary-dark);
+  font-weight: bold;
+}
+
+/* Light title outline */
+.title-outline-light {
+  text-shadow: -2px -2px 0 var(--lightest-outline), 
+               2px -2px 0 var(--lightest-outline), 
+               -2px 2px 0 var(--lightest-outline), 
+               2px 2px 0 var(--lightest-outline),
+               -1px -1px 0 var(--lightest-outline),
+               1px -1px 0 var(--lightest-outline),
+               -1px 1px 0 var(--lightest-outline),
+               1px 1px 0 var(--lightest-outline);
+  font-weight: bold;
+}
+
+/* Button styles */
+.btn-primary {
+  font-weight: bold;
+  background-color: var(--accent);
+  color: var(--primary-dark);
+  border: 2px solid var(--accent-dark);
+}
+
+.btn-secondary {
+  font-weight: bold;
+  background-color: var(--secondary);
+  color: white;
+  border: 2px solid var(--secondary-dark);
+}
+
+.btn-outline {
+  font-weight: bold;
+  color: var(--primary);
+  border: 2px solid var(--primary-dark);
+  background-color: transparent;
+}
+
+.btn-gray {
+  font-weight: bold;
+  color: var(--muted);
+  border: 2px solid var(--muted-foreground);
+  background-color: transparent;
+}
+
+.btn-danger {
+  font-weight: bold;
+  background-color: var(--error);
+  color: white;
+  border: 2px solid var(--error-foreground);
+}
+
+/* Modal backgrounds */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: var(--card-background);
+  color: var(--foreground);
+  border: 1px solid var(--card-border);
+}
+
+/* Label & text styles */
+.label-text {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.high-contrast-text {
+  color: var(--foreground);
+  font-weight: 400;
+}
+
+.section-border {
+  border-top: 1px solid var(--card-border);
+  padding-top: 1.5rem;
+}
+
+/* Animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Card styles */
+.info-card {
+  background-color: var(--info-background);
+  color: var(--info-foreground);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.warning-card {
+  background-color: var(--warning-background);
+  color: var(--warning-foreground);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.error-card {
+  background-color: var(--error-background);
+  color: var(--error-foreground);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.success-card {
+  background-color: var(--success-background);
+  color: var(--success-foreground);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+/* Tag and badge styles */
+.tag {
+  background-color: rgba(255, 158, 175, 0.15);
+  color: var(--secondary-dark);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: var(--warning-background);
+  color: var(--warning-foreground);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Fix footer links */
+.footer-link {
+  color: var(--primary);
+  background-color: rgba(42, 155, 185, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.footer-link:hover {
+  background-color: rgba(42, 155, 185, 0.2);
+}
+
+/* Border styles */
+.themed-border {
+  border: 2px solid var(--card-border);
+  border-radius: 0.75rem;
+}
+
+.feature-border {
+  border-left: 4px solid var(--primary);
+  padding-left: 1rem;
+}
+
+/* Form field enhancements */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(42, 155, 185, 0.2);
+}
+
+/* Add some subtle hover effects */
+.btn-primary:hover, .btn-secondary:hover, .btn-outline:hover, .btn-gray:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:active, .btn-secondary:active, .btn-outline:active, .btn-gray:active {
+  transform: translateY(0);
+  filter: brightness(0.9);
+}
